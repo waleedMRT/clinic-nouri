@@ -25,8 +25,8 @@ body{
 }
 nav{
     width: 100%;
-    isolation: isolate;
     position: fixed;
+    isolation: isolate;
     z-index: 90;
 }
 ul{
@@ -161,6 +161,7 @@ button{
 .feature__card h3{
     color: var(--dark-text-color);
     margin-bottom: 1rem;
+    margin-top: 8px;
 }
 .feature__card p{
     color: var(--light-text-color);
@@ -528,7 +529,7 @@ td{
     color: var(--light-color);
 }
 .alert{
-    position: absolute;
+    position: fixed;
     top: 1rem;
     left: 1rem;
     padding: 1rem;
