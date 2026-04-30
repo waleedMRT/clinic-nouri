@@ -27,7 +27,7 @@ nav{
     width: 100%;
     isolation: isolate;
     position: fixed;
-    z-index: 99;
+    z-index: 90;
 }
 ul{
     list-style: none;
@@ -597,6 +597,7 @@ td{
     color: white;
     border-color: #0ea5e9;
 }
+
 
 
 @media (width >= 1024px) {
