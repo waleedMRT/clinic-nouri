@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="contact">
+    <h1 class="title">اتصل بنا</h1>
+    <div class="content">
+        <div class="left__content">
+            <div class="contact__info">
+                <span>
+                    <i class="ri-home-9-line"></i>
+                </span>
+                <div>
+                    <h3>العنوان</h3>
+                    <p>حي أول ماي بفرندة - تيارت</p>
+                </div>
+            </div>
+            <div class="contact__info">
+                <span>
+                   <i class="ri-mail-send-line"></i>
+                </span>
+                <div>
+                    <h3>البريد الإلكتروني</h3>
+                    <p>merabetwalid15@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact__info">
+                <span>
+                    <i class="ri-phone-line"></i>
+                </span>
+                <div>
+                    <h3>رقم الهاتف</h3>
+                    <p style="direction: ltr;">05 58 18 47 17</p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="right__content">
+            <h2>أرسل رسالة</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div>
+                    <label>الإسم و اللقب :</label>
+                    <input type="text" placeholder="ادخل اسمك..." name="name">
+                </div>
+                <div>
+                    <label>بريدك الإلكتروني :</label>
+                    <input type="text" placeholder="ادخل بريدك الإلكتروني..." name="email">
+                </div>
+                <div>
+                    <label>رسالتك :</label>
+                    <textarea placeholder="اكتب رسالتك..." name="message"></textarea>
+                </div>
+                <div class="send__btn">
+                    <button type="submit">
+                        <span>
+                           إرسال 
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</section>
+{% endblock content %}

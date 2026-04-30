@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="book">
+    <form class="form" method="POST">
+    {% csrf_token %}
+    <p class="title1">احجز الآن  </p>
+    <p class="message">وفر وقتك و احجز في دقائق معدودة </p>
+        <div class="flex">
+        <label>
+            <input required="" placeholder="" type="text" class="input" name="first_name">
+            <span>الإسم</span>
+        </label>
+
+        <label>
+            <input required="" placeholder="" type="text" class="input" name="last_name">
+            <span>اللقب</span>
+        </label>
+    </div>  
+            
+    <label>
+        <input required="" placeholder="" type="tel" class="input" name="phone">
+        <span>رقم الهاتف </span>
+    </label> 
+        
+    <label>
+        <input required="" placeholder="" type="number" class="input" name="age">
+        <span>العمر</span>
+    </label>
+    <label>
+        <input required="" placeholder="" type="date" class="input" name="date">
+        <span>تاريخ الحجز</span>
+    </label>
+    <button class="submit">حجز</button>
+</form>
+</section>
+
+{% endblock content %}

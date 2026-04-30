@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="apointements">
+    <div class="filter__date">
+        <form method="GET">
+            <input type="date" name="date" value="{{selected_date}}">
+            <button type="submit">فلترة</button>
+        </form>
+        <a href="{% url 'dashboard' %}"> 
+            <button class="unfilter__btn">
+                إزالة الفلترة
+            </button>
+        </a>
+    </div>
+    <div class="tabs">
+        <a href="?tab=all"
+        class="{% if tab == 'all' %}active{% endif %}">
+            كل الحجوزات ({{ total_appointements_count }})
+        </a>
+        <a href="?tab=today"
+        class="{% if tab == 'today' %}active{% endif %}">
+            حجوزات اليوم ({{ today_appointements_count }})
+        </a>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                <th>اللقب</th>
+                <th>الإسم</th>
+                <th>رقم الهاتف</th>
+                <th>العمر</th>
+                <th>تاريخ انشاء الحجز</th>
+                <th>تاريخ الحجز</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for appt in page_obj %}
+                <tr>
+                    <td>{{appt.first_name}}</td>
+                    <td>{{appt.last_name}}</td>
+                    <td>{{appt.phone}}</td>
+                    <td>{{appt.age}}</td>
+                    <td>{{appt.created_at}}</td>
+                    <td>{{appt.date}}</td>
+                </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="6">لا يوجد حجوزات</td>
+                    </tr>
+                {% endfor%}
+            </tbody>
+            
+        </table>
+    </div>
+    <div class="pagination">
+
+        {% if page_obj.has_previous %}
+            <a href="?page=1{% if selected_date %}&date={{ selected_date }}{% endif %}">« الأولى</a>
+            <a href="?page={{ page_obj.previous_page_number }}{% if selected_date %}&date={{ selected_date }}{% endif %}">السابق</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+
+            {% if page_obj.number == num %}
+                <span class="current">{{ num }}</span>
+            {% else %}
+                <a href="?page={{ num }}{% if selected_date %}&date={{ selected_date }}{% endif %}">
+                    {{ num }}
+                </a>
+            {% endif %}
+
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}{% if selected_date %}&date={{ selected_date }}{% endif %}">التالي</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}{% if selected_date %}&date={{ selected_date }}{% endif %}">الأخيرة »</a>
+        {% endif %}
+
+    </div>
+</section>
+
+{% endblock content %}

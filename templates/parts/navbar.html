@@ -1,0 +1,31 @@
+<nav>
+    <div class="nav__header">
+        <div class="menu__btn" id="menu-btn">
+            <span>
+                <i class="ri-menu-fold-line" id="menu-icon"></i>
+            </span>
+        </div>
+        <div class="nav__logo">
+            <a href="{% url 'home' %}">Clinic <span>MRT</span></a>
+        </div>
+    </div>
+    <ul class="nav__links">
+        <li>
+            <a href="{% url 'about' %}"> حول العيادة</a>
+        </li>
+        <li>
+            <a href="{% url 'contact' %}">اتصل بنا</a>
+        </li>
+        <li>
+            <a href="{% url 'add_apointement'%}"> احجز الآن </a>
+        </li>
+        {% if user.is_superuser %}
+        <li>
+            <a href="{% url 'dashboard'%}">لوحة التحكم</a>
+        </li>
+        <li>
+            <a href="{% url 'admin:index' %}">الإدارة</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="home">
+    <h1>
+        راحتك تبدأ من هنا - <span>احجز موعك الطبي بسهولة</span>
+    </h1>
+    <p>
+        نحن نوفر لك تجربة حجز سريعة ومريحة دون تعقيد.
+        اختر التاريخ المناسب لك واحجز موعدك في أقل من دقيقة.
+    </p>
+    <a href="{% url 'add_apointement'%}">
+        <button class="book__btn">
+            احجز الآن
+        </button>
+    </a>
+</section>
+<section class="home__content">
+    <h1 class="title">مميزات الخدمة</h1>
+    <div class="features">
+        <div class="feature__card">
+            <span class="icon">
+                <i class="ri-flashlight-line"></i>
+            </span>
+            <h3>حجز سريع</h3>
+            <p>
+                احجز موعدك خلال ثوانٍ بدون تسجيل أو خطوات معقدة.
+            </p>
+        </div>
+        <div class="feature__card">
+            <span class="icon">
+                <i class="ri-calendar-check-line"></i>
+            </span>
+            <h3>تنظيم دقيق</h3>
+            <p>
+               نحدد عدد المرضى يوميًا لضمان جودة الخدمة وعدم الازدحام.
+            </p>
+        </div>
+        <div class="feature__card">
+            <span class="icon">
+                <i class="ri-heart-pulse-line"></i>
+            </span>
+            <h3>رعاية طبية موثوقة</h3>
+            <p>
+               فريقنا يسعى لتقديم أفضل تجربة تشخيص وعلاج.
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock content %}
