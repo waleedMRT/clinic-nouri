@@ -31,7 +31,7 @@ DEBUG = env.bool('DEBUG')
 ALLOWED_HOSTS = [
     '127.0.0.1', 
     'localhost',
-    'https://clinic-nouri.onrender.com/'
+    'clinic-nouri.onrender.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://clinic-nouri.onrender.com/']
